@@ -1,0 +1,28 @@
+ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    justify-content: space-between;
+    padding-top: 15px;
+    padding-bottom: 15px; 
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+header {
+    background: rgb(98,145,160);
+    background: linear-gradient(52deg, rgba(98,145,160,1) 0%, rgba(128,190,205,0.698383577063638) 81%);
+    font-size: 25px;
+}
+
+.right {
+    display: flex;
+    margin: 0px 20px;  
+}
+
+.right > li {
+    padding-right: 20px;
+}
