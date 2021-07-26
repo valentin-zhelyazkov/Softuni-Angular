@@ -32,6 +32,7 @@ export class AuthService {
 
   logout(): void {
     this.user = undefined;
+    this.localStorage.removeItem('email');
   }
 
 }
