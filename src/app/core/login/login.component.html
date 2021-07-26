@@ -6,12 +6,12 @@
         <h1>Login</h1>
         <div>
             <label>Username
-                <input type="text">
+                <input #emailInput type="email" name="email">
             </label>
             <label>Password
-                <input type="text">
+                <input #passwordInput type="password" name="password">
             </label>
-            <button class="submit">Login</button>
+            <button class="submit" (click)="login(emailInput.value, passwordInput.value)">Login</button>
         </div>
     </form>
 </article>

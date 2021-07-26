@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { EditComponent } from './edit/edit.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { AddComponent } from './add/add.component';
+import { LocalStorage } from './injection-token';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,12 @@ import { AddComponent } from './add/add.component';
     LoginComponent,
     EditComponent,
     UserProfileComponent
+  ],
+  providers: [
+    {
+      provide: LocalStorage,
+      useValue: window.localStorage
+    }
   ]
 })
 export class CoreModule { }
