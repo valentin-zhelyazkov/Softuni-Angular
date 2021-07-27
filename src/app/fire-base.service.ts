@@ -26,7 +26,7 @@ export class FireBaseService {
 }
 
 export interface IEvent {
-  id?: string;
+  id: string;
   date: string;
   hour: string;
   description: string;

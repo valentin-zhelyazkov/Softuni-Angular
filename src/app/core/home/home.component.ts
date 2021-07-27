@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { IEvent, FireBaseService } from '../../../app/fire-base.service'
 
@@ -32,5 +32,9 @@ export class HomeComponent {
         } as IEvent;
       })
     })
+  }
+
+  deleteEvent(eventId: string): void {
+    this.fireBaseService.deleteEvent(eventId).then();
   }
 }

@@ -9,7 +9,7 @@
         </article>
         <article class="box-footer">
             <p>{{event.description}}</p>
-            <button class="done">Done</button>
+            <button class="done" (click)="deleteEvent(event.id)">Done</button>
             <button class="edit">Edit</button>
         </article>
     </article>
