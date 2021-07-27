@@ -24,7 +24,7 @@ import { LocalStorage } from './injection-token';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
   ],
   exports: [
     HeaderComponent,
