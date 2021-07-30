@@ -3,19 +3,19 @@
         <img src="https://i.pinimg.com/originals/f4/7e/36/f47e3642bcc22272837ea3e9897c9690.jpg">
     </section>
     
-    <form>
+    <form [formGroup]="form">
         <h1>Edit Reminder</h1>
-        <div>
+        <div *ngIf="id">
             <label>Date
-                <input type="text">
+                <input type="text" formControlName="date" name="date">
             </label>
             <label>Hour
-                <input type="text">
+                <input type="text" formControlName="hour" name="hour">
             </label>
             <label>Description
-                <input type="text">
+                <input type="text" formControlName="description" name="description">
             </label>
-            <button class="submit">Submit</button>
+            <button class="submit" (click)="updateEvent(id)">Submit</button>
         </div>
     </form>
 </article>

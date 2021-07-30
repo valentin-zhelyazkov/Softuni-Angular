@@ -34,7 +34,6 @@ export class AddComponent implements OnInit {
   }
 
   addEvent(): void {
-    console.log(this.form.value);
     this.fireBaseService.addEvent(this.form?.value).then((res) => {
     this.router.navigate(['/']);
     }).catch(e => {
