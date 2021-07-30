@@ -2,19 +2,19 @@
     <section>
         <img src="https://i.pinimg.com/originals/f4/7e/36/f47e3642bcc22272837ea3e9897c9690.jpg">
     </section>
-    <form>
+    <form [formGroup]="form">
         <h1>Add Event</h1>
         <div>
             <label>Date
-                <input type="text">
+                <input type="text" formControlName="date" name="date">
             </label>
             <label>Hour
-                <input type="text">
+                <input type="text" formControlName="hour" name="hour">
             </label>
             <label>Description
-                <input type="text">
+                <input type="text" formControlName="description" name="description">
             </label>
-            <button class="submit">Add</button>
+            <button class="submit" (click)="addEvent()">Add</button>
         </div>
     </form>
 </article>

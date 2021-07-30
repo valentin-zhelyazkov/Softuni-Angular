@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { IEvent, FireBaseService } from '../../../app/fire-base.service'
 
 @Component({
@@ -13,10 +14,9 @@ export class HomeComponent {
   public eventList: IEvent[] = [];
   public eventDetails: IEvent | undefined;
 
-
   constructor(
-    private fb: FormBuilder,
     private fireBaseService: FireBaseService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -37,4 +37,9 @@ export class HomeComponent {
   deleteEvent(eventId: string): void {
     this.fireBaseService.deleteEvent(eventId).then();
   }
+
+  eventDetailsRedirect(eventId: string): void {
+    this.router.navigate(['/edit/' + eventId]);
+  }
+
 }

@@ -10,7 +10,7 @@
         <article class="box-footer">
             <p>{{event.description}}</p>
             <button class="done" (click)="deleteEvent(event.id)">Done</button>
-            <button class="edit">Edit</button>
+            <button class="edit" (click)="eventDetailsRedirect(event.id)">Edit</button>
         </article>
     </article>
 </section>

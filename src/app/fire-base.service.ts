@@ -16,7 +16,7 @@ export class FireBaseService {
     return this.firestore.collection('events').add(payload);
   }
 
-  updateEvent(eventId: string ,payload: IEvent) {
+  updateEvent(eventId: string, payload: IEvent) {
     return this.firestore.doc('events/' + eventId).update(payload);
   }
 

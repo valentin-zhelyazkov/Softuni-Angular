@@ -10,6 +10,7 @@ import { EditComponent } from './edit/edit.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { AddComponent } from './add/add.component';
 import { LocalStorage } from './injection-token';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { LocalStorage } from './injection-token';
   imports: [
     CommonModule,
     RouterModule,
+    ReactiveFormsModule
   ],
   exports: [
     HeaderComponent,
