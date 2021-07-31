@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth.service';
-
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-header',
@@ -10,11 +10,7 @@ import { AuthService } from 'src/app/auth.service';
 })
 export class HeaderComponent {
 
-  get isLogged(): boolean {
-    return this.authService.isLogged;
-  }
-
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router, public afAuth: AngularFireAuth) { }
 
   logout(): void {
     this.authService.logout();

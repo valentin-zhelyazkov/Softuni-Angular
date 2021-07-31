@@ -2,18 +2,21 @@
     <section>
         <img src="https://i.pinimg.com/originals/f4/7e/36/f47e3642bcc22272837ea3e9897c9690.jpg">
     </section>
-    <form>
+    <form [formGroup]="signupForm" (ngSubmit)="signup()">
         <h1>Register</h1>
         <div>
-            <label>Username
-                <input type="text">
+            <label>Email
+                <input type="text" formControlName="email">
             </label>
             <label>Password
-                <input type="text">
+                <input type="text" formControlName="password">
             </label>
             <label>Repeat Password
                 <input type="text">
             </label>
+            <div *ngIf="firebaseErrorMessage != ''">
+                <span>{{ firebaseErrorMessage }}</span>
+            </div>
             <button class="submit">Register</button>
         </div>
     </form>

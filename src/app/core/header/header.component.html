@@ -2,11 +2,11 @@
     <nav>
         <ul>
             <li class="left"><a routerLink="/">Home</a></li>
-            <div *ngIf="!isLogged" class="right">
+            <div class="right" *ngIf="!(afAuth.user | async)">
                 <li><a routerLink="/login">Login</a></li>
                 <li><a routerLink="/register">Register</a></li>
             </div>
-            <div *ngIf="isLogged" class="right">
+            <div class="right" *ngIf="(afAuth.user | async)">
                 <li><a routerLink="/add">Add Event</a></li>
                 <li><a routerLink="/profile">Profile</a></li>
                 <li class="logout" (click)="logout()">Logout</li>

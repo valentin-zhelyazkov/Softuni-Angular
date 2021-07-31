@@ -1,38 +1,62 @@
-import { Injectable, Inject } from '@angular/core';
-import { IUser } from './core/userInterface';
-import { LocalStorage } from './core/injection-token';
+import { Injectable } from '@angular/core';
+
+import { AngularFireAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  user: IUser | undefined;
+  userLoggedIn: boolean;
 
-  get isLogged(): boolean { 
-    return !!this.user
+  constructor(private router: Router, private afAuth: AngularFireAuth) {
+    this.userLoggedIn = false;
+
+    this.afAuth.onAuthStateChanged((user) => {
+      if (user) {
+        this.userLoggedIn = true;
+      } else {
+        this.userLoggedIn = false;
+      }
+    });
+  }
+
+  register(user: any): Promise<any> {
+    return this.afAuth.createUserWithEmailAndPassword(user.email, user.password)
+      .then((result) => {
+
+      })
+      .catch(error => {
+        console.log('Auth Service: signup error', error);
+        if (error.code) {
+          return { isValid: false, message: error.message };
+        } else {
+          return { isValid: false, message: error.message };
+        }
+      });
   };
 
-  constructor(@Inject(LocalStorage) private localStorage: Window['localStorage']) {
-    try {
-      const localStorageUser = this.localStorage.getItem('email') || 'ERROR';
-      this.user = JSON.parse(localStorageUser);
-    } catch {
-      this.user = undefined;
-    }
-   }
-
-  login(email: string, password: string): void {
-    this.user = {
-      email
-    };
-
-    this.localStorage.setItem('email', email);
+  login(email:string, password:string): Promise<any> {
+    return this.afAuth.signInWithEmailAndPassword(email, password)
+    .then((result) => {
+      console.log('Auth Service: loginUser: success');
+    })
+    .catch(error => {
+      console.log('Auth Service: login error...');
+      console.log('error code', error.code);
+      console.log('error', error);
+      if(error.code) {
+        return { isValid: false, message: error.message };
+      } else {
+        return { isValid: false, message: error.message };
+      }
+    })
   }
 
   logout(): void {
-    this.user = undefined;
-    this.localStorage.removeItem('email');
+    this.afAuth.signOut();
   }
 
 }

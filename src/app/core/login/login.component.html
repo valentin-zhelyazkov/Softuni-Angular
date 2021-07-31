@@ -2,16 +2,20 @@
     <section>
         <img src="https://i.pinimg.com/originals/f4/7e/36/f47e3642bcc22272837ea3e9897c9690.jpg">
     </section>
-    <form>
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
         <h1>Login</h1>
         <div>
-            <label>Username
-                <input #emailInput type="email" name="email">
+            <label>Email
+                <input type="email" formControlName="email">
             </label>
             <label>Password
-                <input #passwordInput type="password" name="password">
+                <input type="password" formControlName="password">
             </label>
-            <button class="submit" (click)="login(emailInput.value, passwordInput.value)">Login</button>
+            <div *ngIf="firebaseErrorMessage != ''">
+                <span>{{ firebaseErrorMessage }}</span>
+            </div>
+            <button class="submit">Login</button>
         </div>
+        
     </form>
 </article>
