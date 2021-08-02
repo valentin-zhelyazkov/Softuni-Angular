@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-user-profile',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserProfileComponent implements OnInit {
 
-  constructor() { }
+  username: string;
+
+  constructor(private afAuth: AngularFireAuth) { 
+    this.username = '';
+  }
 
   ngOnInit(): void {
+    this.afAuth.currentUser.then(res => {
+      this.username = res?.email ? res.email : '';
+    })
   }
 
 }
