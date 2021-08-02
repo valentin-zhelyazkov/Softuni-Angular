@@ -58,7 +58,6 @@
     color: white;
 }
 
-
 .done:hover, .edit:hover {
     cursor: pointer;
 }
@@ -72,4 +71,14 @@ section {
 section img {
     width: 100%;
     height: 786px;
+    background-repeat: no-repeat;
+}
+
+.sign-in {
+    font-size: 2em;
+    text-align: center;
+    margin-top: 20%;
+    border: 1px solid black;
+    width: 500px;
+    margin-left: 30%;
 }

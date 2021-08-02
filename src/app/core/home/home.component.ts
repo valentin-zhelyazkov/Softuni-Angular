@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { IEvent, FireBaseService } from '../../../app/fire-base.service'
+import { IEvent, FireBaseService } from '../../../app/fire-base.service';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +17,8 @@ export class HomeComponent {
 
   constructor(
     private fireBaseService: FireBaseService,
-    private router: Router
+    private router: Router,
+    public afAuth: AngularFireAuth
   ) {}
 
   ngOnInit(): void {
