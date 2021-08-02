@@ -7,6 +7,8 @@ import { LoginComponent } from './core/login/login.component';
 import { RegisterComponent } from './core/register/register.component';
 import { UserProfileComponent } from './core/user-profile/user-profile.component';
 
+import { GuardAuthGuard } from './core/guard-auth.guard';
+
 const routes: Routes = [
   {
     path: '',
@@ -23,15 +25,18 @@ const routes: Routes = [
   },
   {
     path: 'add',
-    component: AddComponent
+    component: AddComponent,
+    canActivate: [GuardAuthGuard]
   },
   {
     path: 'profile',
-    component: UserProfileComponent
+    component: UserProfileComponent,
+    canActivate: [GuardAuthGuard]
   },
   {
     path: 'edit/:id',
-    component: EditComponent
+    component: EditComponent,
+    canActivate: [GuardAuthGuard]
   }
 ];
 

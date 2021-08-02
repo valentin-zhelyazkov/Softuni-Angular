@@ -17,7 +17,7 @@ export class LoginComponent {
   constructor(
     private authService: AuthService,
     private router: Router,
-    afAuth: AngularFireAuth
+    private afAuth: AngularFireAuth
   ) {
     this.loginForm = new FormGroup({
       'email': new FormControl('', [Validators.required, Validators.email]),
@@ -34,7 +34,7 @@ export class LoginComponent {
     this.authService.login(this.loginForm.value.email, this.loginForm.value.password)
       .then((res) => {
         if (res == null) {
-          console.log('logging in...');
+          console.log('logging in...'); 
           this.router.navigate(['/']);
         } else {
           console.log('loggin error', res);
