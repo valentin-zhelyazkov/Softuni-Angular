@@ -15,6 +15,7 @@ a {
 header {
     background: rgb(98,145,160);
     background: linear-gradient(52deg, rgba(98,145,160,1) 0%, rgba(128,190,205,0.698383577063638) 81%);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     font-size: 25px;
 }
 

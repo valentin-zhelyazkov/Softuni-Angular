@@ -1,21 +1,20 @@
-<section>
-    <img src="https://i.pinimg.com/originals/f4/7e/36/f47e3642bcc22272837ea3e9897c9690.jpg">
-</section>
-<div *ngIf="(afAuth.user | async)">
-<section class="wrapper" *ngIf="eventList.length">
-    <article class="box" *ngFor="let event of eventList">
-        <article class="box-header">
-            <p>{{event.date}}</p>
-            <p>{{event.hour}}</p>
+<section class="section-img">
+    <div *ngIf="(afAuth.user | async)">
+    <section class="wrapper" *ngIf="eventList.length">
+        <article class="box" *ngFor="let event of eventList">
+            <article class="box-header">
+                <p>{{event.date}}</p>
+                <p>{{event.hour}}</p>
+            </article>
+            <article class="box-footer">
+                <p>{{event.description}}</p>
+                <button class="done" (click)="deleteEvent(event.id)">Done</button>
+                <button class="edit" (click)="eventDetailsRedirect(event.id)">Edit</button>
+            </article>
         </article>
-        <article class="box-footer">
-            <p>{{event.description}}</p>
-            <button class="done" (click)="deleteEvent(event.id)">Done</button>
-            <button class="edit" (click)="eventDetailsRedirect(event.id)">Edit</button>
-        </article>
-    </article>
-</section>
-</div>
-<section class="sign-in" *ngIf="!(afAuth.user | async)">
-    You need to sign in to have access!!!
+    </section>
+    </div>
+    <section class="sign-in" *ngIf="!(afAuth.user | async)">
+        You need to sign in to have access!!!
+    </section>
 </section>

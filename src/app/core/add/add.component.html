@@ -1,10 +1,7 @@
 <article>
-    <section>
-        <img src="https://i.pinimg.com/originals/f4/7e/36/f47e3642bcc22272837ea3e9897c9690.jpg">
-    </section>
     <form [formGroup]="form">
-        <h1>Add Event</h1>
-        <div>
+        <div class="form-wrapper">
+            <h1>Add Event</h1>
             <label>Date
                 <input type="text" formControlName="date" name="date">
             </label>
@@ -14,7 +11,9 @@
             <label>Description
                 <input type="text" formControlName="description" name="description">
             </label>
-            <button class="submit" (click)="addEvent()">Add</button>
+            <div class="button-wrapper">
+                <button class="action-button" type="submit" (click)="addEvent()">Add</button>
+            </div>
         </div>
     </form>
 </article>

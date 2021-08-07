@@ -1,11 +1,7 @@
-<article>
-    <section>
-        <img src="https://i.pinimg.com/originals/f4/7e/36/f47e3642bcc22272837ea3e9897c9690.jpg">
-    </section>
-    
+<article>    
     <form [formGroup]="form">
-        <h1>Edit Reminder</h1>
-        <div *ngIf="id">
+        <div *ngIf="id" class="form-wrapper">
+            <h1>Edit Reminder</h1>
             <label>Date
                 <input type="text" formControlName="date" name="date">
             </label>
@@ -15,7 +11,9 @@
             <label>Description
                 <input type="text" formControlName="description" name="description">
             </label>
-            <button class="submit" (click)="updateEvent(id)">Submit</button>
+            <div class="button-wrapper">
+                <button type="submit" class="action-button" (click)="updateEvent(id)">Submit</button>
+            </div>
         </div>
     </form>
 </article>

@@ -1,4 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 body {
+    font-family: 'Roboto', sans-serif;
     margin: 0px;
     padding: 0px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+app-root{
+    height: 100%;
+}
+
+html {
+    height: 100%;
+    background: url("https://www.teahub.io/photos/full/279-2791459_minimalist-wallpaper-4k.jpg") no-repeat center center fixed;
+
+}
+
+.action-button {
+    margin-top: 2rem;
+    background: #8E694F;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    cursor: pointer;
+    color: white;
+    padding: 0;
+    border-radius: 6px;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    outline: none
+}
+
+.button-wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid black;
+    border-radius: 6px;
+    box-shadow: -1px 0px 20px 0px black;
+    padding: 30px;
+}
+
+.action-button:hover{
+    background: black;
+    color: white;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem;
+    width: 500px;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 17%;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+h1 {
+    text-align: center;
+    margin: 0;
+    margin-bottom: 2rem;
+    padding: 0;
 }

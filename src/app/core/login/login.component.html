@@ -1,10 +1,7 @@
 <article>
-    <section>
-        <img src="https://i.pinimg.com/originals/f4/7e/36/f47e3642bcc22272837ea3e9897c9690.jpg">
-    </section>
     <form [formGroup]="loginForm" (ngSubmit)="login()">
-        <h1>Login</h1>
-        <div>
+        <div class="form-wrapper">
+            <h1>Login</h1>
             <label>Email
                 <input type="email" formControlName="email">
             </label>
@@ -14,8 +11,9 @@
             <div *ngIf="firebaseErrorMessage != ''">
                 <span>{{ firebaseErrorMessage }}</span>
             </div>
-            <button class="submit">Login</button>
+            <div class="button-wrapper">
+                <button class="action-button" type="submit">Login</button>
+            </div>
         </div>
-        
     </form>
 </article>
