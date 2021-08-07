@@ -7,6 +7,7 @@
                 <li><a routerLink="/register">Register</a></li>
             </div>
             <div class="right" *ngIf="(afAuth.user | async)">
+                <li><a routerLink="/weather">Weather</a></li>
                 <li><a routerLink="/add">Add Event</a></li>
                 <li><a routerLink="/profile">Profile</a></li>
                 <li class="logout" (click)="logout()">Logout</li>

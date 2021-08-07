@@ -12,6 +12,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { AddComponent } from './add/add.component';
 import { LocalStorage } from './injection-token';
 import { ReactiveFormsModule } from '@angular/forms';
+import { WeatherComponent } from './weather/weather.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     LoginComponent,
     EditComponent,
     UserProfileComponent,
-    AddComponent
+    AddComponent,
+    WeatherComponent
   ],
   imports: [
     CommonModule,

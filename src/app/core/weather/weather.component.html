@@ -1,0 +1,5 @@
+<div class="outer-wrapper" *ngIf="responseData">
+    <p class="temp">Temperature: <strong>{{responseData[0].temp}} °C</strong></p>
+    <p class="feelsLike">Feels like: <strong>{{responseData[0].feelsLike}} °C</strong></p>
+    <p class="humidity">Humidity: <strong>{{responseData[0].humidity}}</strong></p>
+</div>

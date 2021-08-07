@@ -8,6 +8,7 @@ import { RegisterComponent } from './core/register/register.component';
 import { UserProfileComponent } from './core/user-profile/user-profile.component';
 
 import { GuardAuthGuard } from './core/guard-auth.guard';
+import { WeatherComponent } from './core/weather/weather.component';
 
 const routes: Routes = [
   {
@@ -37,7 +38,11 @@ const routes: Routes = [
     path: 'edit/:id',
     component: EditComponent,
     canActivate: [GuardAuthGuard]
+  },{
+    path: 'weather',
+    component: WeatherComponent,
   }
+
 ];
 
 @NgModule({
