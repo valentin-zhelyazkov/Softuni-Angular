@@ -28,16 +28,17 @@ export class LoginComponent {
 
   login(): void {
     if (this.loginForm.invalid) {
+      this.firebaseErrorMessage = 'Username or password is invalid';
       return;
     }
 
     this.authService.login(this.loginForm.value.email, this.loginForm.value.password)
       .then((res) => {
         if (res == null) {
-          console.log('logging in...'); 
+           
           this.router.navigate(['/']);
         } else {
-          console.log('loggin error', res);
+         
           this.firebaseErrorMessage = res.message;
         }
       })

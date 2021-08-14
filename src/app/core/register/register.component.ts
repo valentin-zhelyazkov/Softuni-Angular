@@ -32,16 +32,19 @@ export class RegisterComponent implements OnInit {
 
   signup() {
     if (this.signupForm.invalid) {
-      return;
+       this.firebaseErrorMessage = 'Username or password is invalid';
+       return;
     }
 
     this.authService.register(this.signupForm.value).then((res) => {
       if (res == null) {
         this.router.navigate(['/login']);
       } else if (res.isValid) {
-        this.firebaseErrorMessage = res.message;
+        this.firebaseErrorMessage = res.message;  
       }
-    }).catch(() => {})
+    }).catch((error) => {
+     
+    })
   }
 
 }

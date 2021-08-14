@@ -1,18 +1,21 @@
 <article>
-    <form [formGroup]="form">
+    <form [formGroup]="form" (ngSubmit)="addEvent()">
         <div class="form-wrapper">
             <h1>Add Event</h1>
             <label>Date
-                <input type="text" formControlName="date" name="date">
+                <input type="text" formControlName="date">
             </label>
             <label>Hour
-                <input type="text" formControlName="hour" name="hour">
+                <input type="text" formControlName="hour">
             </label>
             <label>Description
-                <input type="text" formControlName="description" name="description">
+                <input type="text" formControlName="description">
             </label>
+            <div class="error" *ngIf="error != ''">
+                <span>{{ error }}</span>
+            </div>
             <div class="button-wrapper">
-                <button class="action-button" type="submit" (click)="addEvent()">Add</button>
+                <button class="action-button" type="submit">Add</button>
             </div>
         </div>
     </form>

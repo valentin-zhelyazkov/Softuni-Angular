@@ -26,7 +26,7 @@ export class AuthService {
   register(user: any): Promise<any> {
     return this.afAuth.createUserWithEmailAndPassword(user.email, user.password)
       .then((result) => {
-
+        
       })
       .catch(error => {
         console.log('Auth Service: signup error', error);
@@ -41,12 +41,9 @@ export class AuthService {
   login(email:string, password:string): Promise<any> {
     return this.afAuth.signInWithEmailAndPassword(email, password)
     .then((result) => {
-      console.log('Auth Service: loginUser: success');
+      
     })
     .catch(error => {
-      console.log('Auth Service: login error...');
-      console.log('error code', error.code);
-      console.log('error', error);
       if(error.code) {
         return { isValid: false, message: error.message };
       } else {

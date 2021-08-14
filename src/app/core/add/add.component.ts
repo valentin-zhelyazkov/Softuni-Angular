@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { IEvent, FireBaseService } from '../../../app/fire-base.service';
 import { Router } from '@angular/router';
 
@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class AddComponent implements OnInit {
 
   public form!: FormGroup;
+  public error: string;
 
   public eventList: IEvent[] = [];
   public eventDetails: IEvent | undefined;
@@ -19,26 +20,24 @@ export class AddComponent implements OnInit {
     private fb: FormBuilder,
     private fireBaseService: FireBaseService,
     private router: Router,
-  ) {}
-
-  ngOnInit(): void {
-    this.formInit();
+  ) {
+    this.error = '';
   }
 
-  formInit(): void {
-   this.form = this.fb.group({
-     date: '',
-     hour: '',
-     description: ''
-   })
+  ngOnInit(): void {
+    this.form = new FormGroup({
+      'date': new FormControl('', [Validators.required, Validators.minLength(8)]),
+      'hour': new FormControl('', [Validators.required, Validators.minLength(7)]),
+      'description': new FormControl('', [Validators.required])
+    })
   }
 
   addEvent(): void {
     this.fireBaseService.addEvent(this.form?.value).then((res) => {
-    this.router.navigate(['/']);
+        this.router.navigate(['/']);     
     }).catch(e => {
-      
+      console.log(e);
     });
+    
   }
-
 }
