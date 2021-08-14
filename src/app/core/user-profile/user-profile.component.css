@@ -17,3 +17,13 @@
 .img {
     padding-top: 20%;
 }
+
+.delete {
+    background: red;
+    color: white;
+    width: 100px;
+}
+
+.content p {
+    font-weight: bold;
+}

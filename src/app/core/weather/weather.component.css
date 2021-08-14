@@ -9,3 +9,10 @@
     width: 30%;
     margin-left: 35%;
 }
+
+.weather {
+    margin-bottom: 0px;
+    color: yellow;
+    font-weight: bold;
+    text-decoration: underline;
+}
