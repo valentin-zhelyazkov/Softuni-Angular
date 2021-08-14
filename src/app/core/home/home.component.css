@@ -75,10 +75,8 @@
 
 .sign-in {
     font-size: 2em;
-    border: 1px solid white;
-    color: white;
-    display: flex;
-    flex-direction: column;
+    border: 1px solid red;
     align-items: center;
-
+    margin-top: 25%;
+    color: white;
 }

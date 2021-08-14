@@ -13,7 +13,6 @@ export class FireBaseService {
   }
 
   addEvent(payload: IEvent) {
-    
     return this.firestore.collection('events').add(payload);
   }
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { IEvent, FireBaseService } from '../../../app/fire-base.service';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
@@ -13,6 +13,7 @@ export class EditComponent implements OnInit {
 
   public form!: FormGroup;
   public id!: any;
+  public error: string;
 
   public eventList: IEvent[] = [];
   public eventDetails: IEvent | undefined;
@@ -24,13 +25,17 @@ export class EditComponent implements OnInit {
     private ar: ActivatedRoute,
     private router: Router
   ) {
-    
+    this.form = new FormGroup({
+      'date': new FormControl('', [Validators.required, Validators.minLength(8)]),
+      'hour': new FormControl('', [Validators.required, Validators.minLength(7)]),
+      'description': new FormControl('', [Validators.required])
+    })
+    this.error = '';
   }
 
   ngOnInit(): void {
       this.getEvents();
       this.id = this.ar.snapshot.paramMap.get('id');
-      this.formInit();
   }
 
   getEvents(): void {
@@ -44,21 +49,16 @@ export class EditComponent implements OnInit {
     })
   }
 
-
-  formInit(): void {
-   this.form = this.fb.group({
-     date: '',
-     hour: '',
-     description: ''
-   })
-  }
-
   updateEvent(eventId: string): void {
     this.eventDetails = this.eventList.find(event => event.id === this.id);
+    if(this.form.invalid){
+      this.error = 'Date must be xx/xx/xx or hour xx/xxam or pm and description not empty';
+    } else {
+      this.fireBaseService.updateEvent(eventId, this.form?.value).then(res => {
+        this.router.navigate(['/']);
+      });
+    }
     
-    this.fireBaseService.updateEvent(eventId, this.form?.value).then(res => {
-      this.router.navigate(['/']);
-    });
   }
 
 }
